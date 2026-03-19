@@ -27,7 +27,6 @@
       line-height: 1.6;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -79,7 +78,6 @@
 
     .nav-btn:hover { background: var(--green) !important; }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -157,12 +155,6 @@
 
     .divider { border: none; border-top: 1px solid var(--stone); }
 
-    /* DIENSTEN */
-    #diensten {
-      padding: 7rem 6%;
-      background: var(--white);
-    }
-
     .section-label {
       font-size: 0.78rem;
       letter-spacing: 0.1em;
@@ -186,6 +178,11 @@
       max-width: 480px;
       line-height: 1.8;
       margin-bottom: 4rem;
+    }
+
+    #diensten {
+      padding: 7rem 6%;
+      background: var(--white);
     }
 
     .diensten-grid {
@@ -219,7 +216,6 @@
       line-height: 1.75;
     }
 
-    /* HOE WERKT HET */
     #hoe-werkt-het {
       padding: 7rem 6%;
       background: var(--cream);
@@ -255,7 +251,6 @@
       line-height: 1.7;
     }
 
-    /* OVER ONS */
     #over-ons {
       padding: 7rem 6%;
       background: #3D3830;
@@ -314,7 +309,6 @@
       line-height: 1.6;
     }
 
-    /* CONTACT */
     #contact {
       padding: 7rem 6%;
       background: var(--white);
@@ -388,7 +382,7 @@
 
     input:focus, select:focus, textarea:focus {
       border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(45,106,79,0.08);
+      box-shadow: 0 0 0 3px rgba(91,173,160,0.1);
     }
 
     textarea { min-height: 120px; resize: vertical; }
@@ -432,7 +426,7 @@
 
     footer {
       background: #2C2825;
-      color: #3d3b39;
+      color: #5a5754;
       text-align: center;
       padding: 2rem 6%;
       font-size: 0.82rem;
@@ -466,7 +460,7 @@
   </nav>
 
   <section class="hero">
-    <p class="hero-label">Kopen & Verkopen</p>
+    <p class="hero-label">Kopen &amp; Verkopen</p>
     <h1>Jouw iPhone,<br><em>eerlijk</em> en<br>snel verhandeld</h1>
     <p>Verkoop jouw iPhone voor de beste prijs, of vind een kwalitatief toestel tegen een eerlijk tarief. Transparant, betrouwbaar en persoonlijk.</p>
     <div class="hero-buttons">
@@ -491,7 +485,7 @@
         <p>Bekijk ons actuele aanbod van zorgvuldig gecontroleerde iPhones. Elk toestel wordt grondig getest voor verkoop.</p>
       </div>
       <div class="dienst">
-        <h3>Garantie & zekerheid</h3>
+        <h3>Garantie &amp; zekerheid</h3>
         <p>Alle toestellen worden geleverd met garantie. Geen verrassingen achteraf — transparantie staat bij ons voorop.</p>
       </div>
     </div>
@@ -525,7 +519,6 @@
     <div>
       <p class="section-label">Over ons</p>
       <h2 class="section-title">Gedreven om telefoons een <em>tweede leven</em> te geven</h2>
-      <img src="foto.jpg" alt="Over ons" style="width:60%;border-radius:16px;margin-bottom:1.8rem;object-fit:cover;object-position:center top;max-height:420px;display:block;">
       <p>Ik geloof dat een goede telefoon niet weggegooid hoeft te worden — hij verdient een tweede kans. Dat idee is de basis van VerkoopJeiPhone. Wat begon als een persoonlijke passie voor technologie, groeide uit tot een missie: iPhones op een eerlijke en duurzame manier een nieuw thuis geven.</p>
       <p>Of je nu klaar bent met je oude toestel of op zoek bent naar een betrouwbare iPhone zonder nieuwprijs — ik zorg dat het eerlijk, snel en persoonlijk verloopt. Geen grote winkelketen, maar een mens die er echt voor je is.</p>
     </div>
@@ -555,7 +548,7 @@
       <h2 class="section-title">Neem contact met ons op</h2>
       <p class="contact-intro">Heb je een iPhone te verkopen, of op zoek naar een toestel? Stuur ons een bericht en we reageren binnen één werkdag.</p>
       <div class="contact-items">
-        <div class="contact-item"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e283b2c3531312e343b372e3631303b1e39333f3732703d3133">[email&#160;protected]</a></div>
+        <div class="contact-item">verkoopjeiphone@gmail.com</div>
         <div class="contact-item">0630576584</div>
         <div class="contact-item">
           <a href="https://wa.me/31630576584" target="_blank">App ons op WhatsApp →</a>
@@ -602,7 +595,16 @@
   </section>
 
   <footer>
-    <p>© 2025 VerkoopJeiPhone &nbsp;·&nbsp; <a href="https://wa.me/31630576584" target="_blank">WhatsApp</a> &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec9a899e8783839c8689859c84838289ac8b818d8580c28f8381">[email&#160;protected]</a></p>
+    <p>© 2025 VerkoopJeiPhone &nbsp;·&nbsp; <a href="https://wa.me/31630576584" target="_blank">WhatsApp</a> &nbsp;·&nbsp; verkoopjeiphone@gmail.com</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cg
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
