@@ -1,6 +1,3 @@
-Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/committen). Let op: jouw bestandsnamen zijn precies `Oranje shirt.jpg` en `wit shirt.jpg`, met spatie en hoofdletter.
-
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -164,10 +161,10 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
       animation: fadeUp 0.6s 0.3s ease both;
     }
 
+    /* HERO VISUAL: 2 shirts naast elkaar, minder ingezoomd */
     .hero-visual {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
       gap: 16px;
       padding-left: 32px;
       animation: fadeIn 0.8s 0.3s ease both;
@@ -178,21 +175,17 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
       border-radius: 4px;
       overflow: hidden;
       position: relative;
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 3;
       transition: transform 0.3s;
-    }
-    .shirt-card:first-child {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-      aspect-ratio: auto;
     }
     .shirt-card:hover { transform: translateY(-4px); }
 
     .shirt-card img {
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #1a1a1a;
+      display: block;
     }
 
     .shirt-label {
@@ -306,7 +299,7 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
 
     .shirts-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* twee kaarten naast elkaar */
       gap: 24px;
     }
 
@@ -324,7 +317,7 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
 
     .product-img {
       background: #1f1f1f;
-      height: 280px;
+      height: 260px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -333,10 +326,11 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
     }
 
     .product-img img {
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;  /* minder ingezoomd */
+      background: #1f1f1f;
+      display: block;
     }
 
     .product-img::after {
@@ -388,340 +382,4 @@ Plak dit hele bestand als `index.html` (alles selecteren, vervangen, opslaan/com
 
     .price {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: var(--oranje);
-    }
-
-    .btn-small {
-      background: var(--zwart);
-      color: var(--wit);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-small:hover { background: var(--oranje); }
-
-    .bestel-section {
-      background: var(--zwart);
-      padding: 100px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .bestel-section h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(3rem, 5vw, 5rem);
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -1px;
-      color: var(--wit);
-      margin-bottom: 24px;
-    }
-
-    .bestel-section h2 span { color: var(--oranje); }
-
-    .bestel-section p {
-      color: #aaa;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .bestel-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .step-num {
-      width: 40px;
-      height: 40px;
-      background: var(--oranje);
-      color: var(--wit);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step-text h4 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      color: var(--wit);
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
-    }
-
-    .step-text p {
-      font-size: 0.875rem;
-      color: #666;
-      margin-bottom: 0;
-    }
-
-    footer {
-      background: #0a0a0a;
-      border-top: 1px solid #1f1f1f;
-      padding: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    footer .logo { color: var(--wit); }
-
-    footer p {
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    footer nav a {
-      font-size: 0.8rem;
-      color: #555;
-      text-decoration: none;
-      margin-left: 28px;
-      transition: color 0.2s;
-    }
-    footer nav a:hover { color: var(--oranje); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
-      .hero-visual { display: none; }
-      .features { grid-template-columns: 1fr 1fr; }
-      .shirts-grid { grid-template-columns: 1fr; }
-      .bestel-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
-      footer nav { margin-top: 8px; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
-    <ul class="nav-links">
-      <li><a href="#shirts">Shirts</a></li>
-      <li><a href="#bestellen">Bestellen</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="https://wa.me/31600000000" class="btn-primary">Bestel nu</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">Nederland Collectie 2024/25</div>
-      <h1>
-        DRAAG<br>
-        <span class="accent">ORANJE</span><br>
-        MET TROTS
-      </h1>
-      <p>Replica‑shirts van het Nederlands elftal. Thuis- en uitshirt nu beschikbaar. Snel geleverd, scherpe prijs.</p>
-      <div class="hero-cta">
-        <a href="https://wa.me/31600000000" class="btn-primary">Bestel nu</a>
-        <a href="tel:+31600000000" class="btn-secondary">Bel ons</a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="shirt-card">
-        <img src="Oranje shirt.jpg" alt="Nederlands elftal thuisshirt oranje 2024/25">
-        <div class="shirt-label">Thuisshirt</div>
-      </div>
-      <div class="shirt-card">
-        <img src="wit shirt.jpg" alt="Nederlands elftal uitshirt wit 2024/25">
-        <div class="shirt-label">Uitshirt</div>
-      </div>
-      <div class="shirt-card">
-        <img src="Oranje shirt.jpg" alt="Keepersshirt Nederland 2024/25">
-        <div class="shirt-label">Keeper</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner">
-      <span class="ticker-item">Snelle levering</span>
-      <span class="ticker-item">Bestellen via WhatsApp</span>
-      <span class="ticker-item">Replica shirts</span>
-      <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
-      <span class="ticker-item">Nederland 2024/25</span>
-      <span class="ticker-item">Gratis verzending</span>
-      <span class="ticker-item">Snelle levering</span>
-      <span class="ticker-item">Bestellen via WhatsApp</span>
-      <span class="ticker-item">Replica shirts</span>
-      <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
-      <span class="ticker-item">Nederland 2024/25</span>
-      <span class="ticker-item">Gratis verzending</span>
-    </div>
-  </div>
-
-  <section class="features">
-    <div class="feature">
-      <div class="feature-icon">SL</div>
-      <h3>Snelle levering</h3>
-      <p>Binnen 2–3 werkdagen bij jou thuis, met track & trace.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">WA</div>
-      <h3>Bestellen via WhatsApp</h3>
-      <p>Stuur een bericht, wij regelen de rest.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">RP</div>
-      <h3>Replica shirts</h3>
-      <p>Strakke kwaliteit voor een scherpe prijs.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">ID</div>
-      <h3>iDEAL of Tikkie</h3>
-      <p>Betaal veilig en vertrouwd op jouw manier.</p>
-    </div>
-  </section>
-
-  <section class="shirts-section" id="shirts">
-    <div class="section-header">
-      <div>
-        <div class="section-label">Collectie 2024/25</div>
-        <h2 class="section-title">KIES JOUW<br>SHIRT</h2>
-      </div>
-      <a href="https://wa.me/31600000000" class="btn-primary">Alle shirts bekijken</a>
-    </div>
-
-    <div class="shirts-grid">
-      <div class="product-card">
-        <div class="product-img">
-          <img src="Oranje shirt.jpg" alt="Nederlands elftal thuisshirt oranje 2024/25">
-          <div class="product-badge">Populairste</div>
-        </div>
-        <div class="product-info">
-          <h3>Thuisshirt</h3>
-          <p class="sub">Nederland — seizoen 2024/25</p>
-          <div class="product-footer">
-            <span class="price">€24,99</span>
-            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img">
-          <img src="wit shirt.jpg" alt="Nederlands elftal uitshirt wit 2024/25">
-        </div>
-        <div class="product-info">
-          <h3>Uitshirt</h3>
-          <p class="sub">Nederland — seizoen 2024/25</p>
-          <div class="product-footer">
-            <span class="price">€24,99</span>
-            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img">
-          <img src="Oranje shirt.jpg" alt="Keepersshirt Nederland 2024/25">
-          <div class="product-badge">Nieuw</div>
-        </div>
-        <div class="product-info">
-          <h3>Keepersshirt</h3>
-          <p class="sub">Nederland — seizoen 2024/25</p>
-          <div class="product-footer">
-            <span class="price">€24,99</span>
-            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bestel-section" id="bestellen">
-    <div>
-      <h2>ZO SIMPEL<br>BESTEL JE BIJ<br><span>ONS</span></h2>
-      <p>Geen ingewikkelde webshop. Gewoon direct contact via WhatsApp en binnen no-time jouw shirt in huis.</p>
-      <a href="https://wa.me/31600000000" class="btn-primary" style="font-size:1.1rem;padding:16px 36px;">
-        Start bestelling via WhatsApp
-      </a>
-    </div>
-    <div class="bestel-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <h4>Stuur een bericht</h4>
-          <p>Laat weten welk shirt je wilt en in welke maat.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <h4>Ontvang bevestiging</h4>
-          <p>Je krijgt een orderbevestiging en betaalverzoek via Tikkie of iDEAL.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <h4>Betaal & wacht</h4>
-          <p>Na betaling sturen we je shirt direct op. Binnen 2–3 dagen in huis.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <h4>Draag met trots</h4>
-          <p>Jouw shirt is binnen. Klaar voor wedstrijddag.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
-    <p>© 2025 VoetbalshirtsNL. Alle rechten voorbehouden.</p>
-    <nav>
-      <a href="#shirts">Shirts</a>
-      <a href="#bestellen">Bestellen</a>
-      <a href="#contact">Contact</a>
-      <a href="https://wa.me/31600000000">WhatsApp</a>
-    </nav>
-  </footer>
-
-</body>
-</html>
-```
+      font-weight:
