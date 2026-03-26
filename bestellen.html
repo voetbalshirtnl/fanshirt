@@ -23,10 +23,9 @@
       color:var(--tekst);
     }
 
-    /* Eenvoudige bovenbalk met alleen logo-link */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
-      display:flex; align-items:center;
+      display:flex; align-items:center; justify-content:space-between;
       padding:0 32px;
       background:rgba(255,255,255,0.96);
       border-bottom:1px solid #eee;
@@ -39,13 +38,27 @@
     }
     .logo span { color:var(--oranje); }
 
-    /* Hele blok centreren */
+    .nav-links {
+      list-style:none;
+      display:flex;
+      gap:28px;
+    }
+    .nav-links a {
+      font-size:0.875rem;
+      font-weight:600;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:var(--tekst);
+    }
+    .nav-links a:hover { color:var(--oranje); }
+
     main {
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:96px 16px 32px; /* ruimte voor navbar */
+      padding:96px 16px 32px;
     }
 
     .bestel-container {
@@ -139,6 +152,12 @@
 
   <nav>
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#shirts">Shirts</a></li>
+      <li><a href="bestellen.html">Bestellen</a></li>
+      <li><a href="gripsokken.html">Gripsokken</a></li>
+      <li><a href="over-ons.html">Over ons</a></li>
+    </ul>
   </nav>
 
   <main>
