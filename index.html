@@ -9,7 +9,7 @@
     :root {
       --oranje: #FF5500;
       --oranje-donker: #cc4400;
-      --zwart: #070707;
+      --zwart: #111111;
       --wit: #ffffff;
       --achtergrond: #fff5ec;
       --kaart-rand: #e5e2dc;
@@ -24,7 +24,7 @@
       color:var(--tekst);
     }
 
-    /* BOVENSTE BALK */
+    /* BOVENBALK */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
       display:flex; align-items:center; justify-content:space-between;
@@ -59,53 +59,57 @@
     .nav-links a:hover { color:var(--oranje); }
 
     main {
-      padding:96px 24px 40px;
+      padding:96px 20px 40px;
     }
 
-    /* HERO ZONDER FOTO RECHTS */
+    /* HERO – EENVOUDIG EN LEESBAAR */
     .hero {
-      max-width:900px;
+      max-width:960px;
       margin:0 auto 40px;
     }
 
     .hero-badge {
       font-family:'Barlow Condensed',sans-serif;
-      font-size:0.72rem;
+      font-size:0.7rem;
       font-weight:700;
-      letter-spacing:0.22em;
+      letter-spacing:0.18em;
       text-transform:uppercase;
       color:var(--oranje);
-      border:1.5px solid var(--oranje);
+      border:1px solid var(--oranje);
       display:inline-block;
-      padding:6px 18px;
-      margin-bottom:22px;
+      padding:5px 14px;
+      margin-bottom:16px;
     }
 
     .hero-title {
       font-family:'Barlow Condensed',sans-serif;
       font-weight:900;
+      font-size:clamp(2.4rem,4vw,3rem);
       text-transform:uppercase;
-      letter-spacing:-1.2px;
-      line-height:0.95;
-      margin-bottom:18px;
+      letter-spacing:-1px;
+      margin-bottom:6px;
     }
-    .hero-title-line {
-      font-size:clamp(2.6rem,4.2vw,3.3rem);
-    }
-    .hero-title-line span { color:var(--oranje); }
+    .hero-title span { color:var(--oranje); }
 
-    .hero-sub {
+    .hero-subtitle {
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700;
+      font-size:1.1rem;
+      margin-bottom:12px;
+    }
+
+    .hero-text {
       font-size:0.98rem;
       color:#555;
-      max-width:520px;
-      line-height:1.7;
-      margin-bottom:22px;
+      max-width:540px;
+      line-height:1.6;
+      margin-bottom:18px;
     }
 
     .hero-actions {
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
+      gap:10px;
       align-items:center;
       margin-bottom:6px;
     }
@@ -115,14 +119,14 @@
       color:var(--wit);
       font-family:'Barlow Condensed',sans-serif;
       font-weight:700;
-      font-size:0.95rem;
+      font-size:0.9rem;
       letter-spacing:0.12em;
       text-transform:uppercase;
       border:none;
-      padding:11px 30px;
+      padding:10px 28px;
       cursor:pointer;
       text-decoration:none;
-      clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 100%, 14px 100%);
+      clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
     }
     .btn-primary:hover { background:var(--oranje-donker); }
 
@@ -131,14 +135,14 @@
       color:var(--zwart);
       font-family:'Barlow Condensed',sans-serif;
       font-weight:700;
-      font-size:0.9rem;
+      font-size:0.88rem;
       letter-spacing:0.12em;
       text-transform:uppercase;
-      border:2px solid var(--zwart);
-      padding:9px 24px;
+      border:1.5px solid var(--zwart);
+      padding:9px 22px;
       cursor:pointer;
       text-decoration:none;
-      clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 100%, 14px 100%);
+      clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
     }
     .btn-secondary:hover {
       border-color:var(--oranje);
@@ -148,17 +152,19 @@
     .hero-note {
       font-size:0.82rem;
       color:#777;
+      margin-top:4px;
     }
 
-    /* ONZE SHIRTS – ALLEEN ORANJE EN WIT */
+    /* PRODUCTEN – TWEE KAARTEN, CLEAN */
     #shirts {
-      max-width:1200px;
+      max-width:960px;
       margin:0 auto 40px;
     }
+
     .section-title {
       font-family:'Barlow Condensed',sans-serif;
       font-weight:800;
-      font-size:1.7rem;
+      font-size:1.6rem;
       text-transform:uppercase;
       letter-spacing:0.08em;
       margin-bottom:18px;
@@ -167,40 +173,42 @@
     .shirts-grid {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
+      gap:20px;
     }
+
     .shirt-card {
       background:var(--wit);
       border-radius:12px;
       border:1px solid var(--kaart-rand);
-      padding:16px 16px 18px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.06);
+      padding:14px 14px 16px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.05);
     }
     .shirt-card img {
       width:100%;
       height:auto;
       border-radius:10px;
       margin-bottom:10px;
+      display:block;
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
       font-weight:700;
-      font-size:1.25rem;
+      font-size:1.2rem;
       text-transform:uppercase;
-      margin-bottom:6px;
+      margin-bottom:4px;
     }
     .shirt-meta {
-      font-size:0.86rem;
+      font-size:0.85rem;
       color:#777;
-      margin-bottom:6px;
+      margin-bottom:4px;
     }
     .shirt-price {
       font-weight:700;
       margin-bottom:10px;
     }
     .shirt-card .btn-primary {
-      font-size:0.85rem;
-      padding:9px 18px;
+      font-size:0.82rem;
+      padding:8px 16px;
     }
 
     footer {
@@ -230,42 +238,38 @@
 
   <main>
     <section class="hero">
-      <div>
-        <div class="hero-badge">Oranje fan shirt</div>
+      <div class="hero-badge">Oranje fan shirt</div>
 
-        <div class="hero-title">
-          <div class="hero-title-line">Fan-versie</div>
-          <div class="hero-title-line"><span>Voetbalshirt 2026</span></div>
-        </div>
+      <h1 class="hero-title">Fan-versie <span>voetbalshirt 2026</span></h1>
+      <p class="hero-subtitle">Thuisshirt en uitshirt van het Nederlands elftal, voor een scherpe prijs.</p>
 
-        <p class="hero-sub">
-          Scoor jouw fan-versie van het Nederlands elftal shirt voor het EK/WK 2026.
-          Gemaakt voor fans die er net zo strak bij willen lopen als de spelers.
-        </p>
+      <p class="hero-text">
+        Comfortabele fan-versie van het shirt dat de spelers dragen. Ideaal om wedstrijden te kijken, te trainen of
+        gewoon trots in het oranje rond te lopen.
+      </p>
 
-        <div class="hero-actions">
-          <a href="bestellen.html" class="btn-primary">Bestel nu je shirt</a>
-          <a href="gripsokken.html" class="btn-secondary">Gripsokken</a>
-        </div>
-
-        <p class="hero-note">€24,99 per shirt, betalen via Tikkie.</p>
+      <div class="hero-actions">
+        <a href="bestellen.html" class="btn-primary">Bestel nu je shirt</a>
+        <a href="gripsokken.html" class="btn-secondary">Bekijk gripsokken</a>
       </div>
+
+      <p class="hero-note">€24,99 per shirt, veilige betaling via Tikkie.</p>
     </section>
 
     <section id="shirts">
       <h2 class="section-title">Onze shirts</h2>
       <div class="shirts-grid">
         <article class="shirt-card">
-          <img src="oranje-shirt.jpg" alt="Fan-versie thuisshirt 2026">
-          <h3 class="shirt-title">Fan-versie thuisshirt 2026</h3>
+          <img src="oranje-shirt.jpg" alt="Oranje thuisshirt 2026">
+          <h3 class="shirt-title">Oranje thuisshirt 2026</h3>
           <p class="shirt-meta">Thuis | Oranje | Maat S t/m XL</p>
           <p class="shirt-price">€24,99 per stuk</p>
           <a href="bestellen.html" class="btn-primary">Bestel thuisshirt</a>
         </article>
 
         <article class="shirt-card">
-          <img src="wit-shirt.jpg" alt="Fan-versie uitshirt 2026">
-          <h3 class="shirt-title">Fan-versie uitshirt 2026</h3>
+          <img src="wit-shirt.jpg" alt="Wit uitshirt 2026">
+          <h3 class="shirt-title">Wit uitshirt 2026</h3>
           <p class="shirt-meta">Uit | Wit | Maat S t/m XL</p>
           <p class="shirt-price">€24,99 per stuk</p>
           <a href="bestellen.html" class="btn-primary">Bestel uitshirt</a>
@@ -276,6 +280,11 @@
 
   <footer>
     © 2026 VoetbalshirtsNL. Alle rechten voorbehouden.
+  </footer>
+
+</body>
+</html>
+
   </footer>
 
 </body>
