@@ -111,12 +111,12 @@
     }
     .shirt-card img {
       width:100%;
-      height:220px;       /* iets lager, minder zoom */
-      object-fit:contain; /* volledige foto zichtbaar, zelfde box */
+      height:auto;        /* hele foto zichtbaar */
+      object-fit:contain; /* niks afgesneden */
       border-radius:10px;
       margin-bottom:8px;
       display:block;
-      background:#111;    /* zwarte rand waar nodig */
+      background:#ffffff; /* witte achtergrond */
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -310,6 +310,7 @@
     const shirtSelect = document.getElementById('shirt');
     const formBlock = document.getElementById('bestel-form-blok');
 
+    // Klik op kaart -> juiste shirt selecteren + naar formulier scrollen
     document.querySelectorAll('.shirt-card').forEach(card => {
       card.addEventListener('click', () => {
         const value = card.getAttribute('data-shirt');
@@ -349,6 +350,11 @@
     bestelForm.addEventListener('submit', function() {
       bestelStatus.textContent = 'Bestelling wordt verstuurd...';
     });
+  </script>
+
+</body>
+</html>
+
   </script>
 
 </body>
