@@ -79,7 +79,7 @@
 
     h1 {
       font-family:'Barlow Condensed',sans-serif;
-      font-weight:900; font-size:2.5rem;
+      font-weight:900; font-size:2.3rem;
       text-transform:uppercase; letter-spacing:-0.5px;
       margin-bottom:8px;
     }
@@ -125,7 +125,6 @@
     .form-input::placeholder { color:#a5a29b; }
 
     .form-help { font-size:0.78rem; color:#777; margin-top:4px; }
-    .form-status { font-size:0.8rem; color:#777; margin-top:8px; min-height:1.2em; text-align:center; }
 
     button[type="submit"] {
       margin-top:12px;
@@ -140,6 +139,14 @@
       clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
     }
     button[type="submit"]:hover { background:var(--oranje-donker); }
+
+    .form-status {
+      font-size:0.8rem;
+      color:#777;
+      margin-top:8px;
+      min-height:1.2em;
+      text-align:center;
+    }
 
     @media(max-width:900px){
       nav{padding:0 20px;}
@@ -165,14 +172,15 @@
       <div class="badge">Bestellen</div>
       <h1>Bestel jouw <span>fan-versie shirt 2026</span></h1>
       <p class="intro">
-        Vul hieronder je gegevens in. Na je bestelling ontvang je van ons een betaalverzoek
-        en bevestiging via WhatsApp of e‑mail.
+        Vul hieronder je gegevens in. Na het versturen opent automatisch WhatsApp met je bestelling,
+        zodat we alles persoonlijk kunnen bevestigen.
       </p>
 
       <div class="bestel-card">
         <div class="bestel-card-title">Bestelformulier</div>
 
-        <form id="bestel-form" method="POST" action="https://formspree.io/f/xbdpjozq">
+        <!-- Geen Formspree meer, we handelen alles via JavaScript/WhatsApp -->
+        <form id="bestel-form">
           <div class="form-row">
             <label for="naam" class="form-label">Naam</label>
             <input id="naam" name="naam" type="text" required class="form-input" placeholder="Voor- en achternaam">
@@ -201,10 +209,10 @@
             </select>
           </div>
 
-          <p class="form-help">Prijs per fan-versie shirt: €24,99 – na het versturen betaal je veilig via Tikkie.</p>
+          <p class="form-help">Na het versturen zie je een WhatsApp-bericht met je bestelling. Controleer alles en stuur het bericht om je bestelling af te ronden.</p>
 
           <button type="submit">
-            Verstuur bestelling & betaal
+            Verstuur bestelling via WhatsApp
           </button>
 
           <p id="form-status" class="form-status"></p>
@@ -219,24 +227,34 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const data = new FormData(form);
 
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          statusEl.textContent = 'Bestelling ontvangen, je wordt nu doorgestuurd naar de betaalpagina...';
-          setTimeout(function () {
-            window.location.href = 'https://tikkie.me/pay/gi6odn2ep768og3bt7uv';
-          }, 1000);
-        } else {
-          statusEl.textContent = 'Er ging iets mis. Probeer het later opnieuw.';
-        }
-      }).catch(() => {
-        statusEl.textContent = 'Er ging iets mis. Controleer je verbinding.';
-      });
+      const naam = document.getElementById('naam').value.trim();
+      const adres = document.getElementById('adres').value.trim();
+      const postcode = document.getElementById('postcode').value.trim();
+      const maat = document.getElementById('maat').value.trim();
+      const shirt = document.getElementById('shirt').value;
+
+      if (!naam || !adres || !postcode || !maat || !shirt) {
+        statusEl.textContent = 'Vul alle velden in voordat je verstuurt.';
+        return;
+      }
+
+      // WhatsApp nummer in internationaal formaat, zonder + en zonder leidende 0
+      const phone = '31630576584';
+
+      const message =
+        'Nieuwe bestelling fan-versie shirt:%0A%0A' +
+        'Naam: ' + encodeURIComponent(naam) + '%0A' +
+        'Adres: ' + encodeURIComponent(adres) + '%0A' +
+        'Postcode + woonplaats: ' + encodeURIComponent(postcode) + '%0A' +
+        'Maat: ' + encodeURIComponent(maat) + '%0A' +
+        'Shirt: ' + encodeURIComponent(shirt) + '%0A%0A' +
+        'Stuur je me even een bevestiging met de betaalgegevens?';
+
+      const url = 'https://wa.me/' + phone + '?text=' + message;
+
+      statusEl.textContent = 'WhatsApp wordt geopend...';
+      window.open(url, '_blank');
     });
   </script>
 
