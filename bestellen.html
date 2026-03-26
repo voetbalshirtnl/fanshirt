@@ -23,6 +23,7 @@
       color:var(--tekst);
     }
 
+    /* BOVENBALK */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
       display:flex; align-items:center; justify-content:space-between;
@@ -43,30 +44,29 @@
       text-transform:uppercase; text-decoration:none; color:var(--tekst);
     }
     .nav-links a:hover { color:var(--oranje); }
-
     .btn-primary {
       background:var(--oranje); color:var(--wit);
       font-family:'Barlow Condensed',sans-serif;
       font-weight:700; font-size:0.95rem;
       letter-spacing:0.08em; text-transform:uppercase;
-      border:none; padding:10px 24px;
+      border:none; padding:9px 22px;
       cursor:pointer; text-decoration:none;
       clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
     }
     .btn-primary:hover { background:var(--oranje-donker); }
 
+    /* CENTREREN VAN HET GEHELE BLOK */
     main {
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:96px 16px 40px; /* ruimte voor navbar */
+      padding:96px 16px 32px; /* ruimte voor navbar */
     }
 
-    .bestel-wrapper {
-      max-width:520px;
+    .bestel-container {
+      max-width:640px;         /* totale breedte van blok */
       width:100%;
-      text-align:center;
     }
 
     .badge {
@@ -82,7 +82,7 @@
 
     h1 {
       font-family:'Barlow Condensed',sans-serif;
-      font-weight:900; font-size:2.4rem;
+      font-weight:900; font-size:2.5rem;
       text-transform:uppercase; letter-spacing:-0.5px;
       margin-bottom:8px;
     }
@@ -91,18 +91,19 @@
     .intro {
       font-size:0.98rem;
       color:#555;
-      margin:0 auto 26px;
-      max-width:460px;
+      margin:0 0 24px;
+      max-width:540px;
       line-height:1.6;
     }
 
+    /* WITTE FORMULIERKAART – SMALLER GEMAAKT */
     .bestel-card {
       background:var(--wit);
       border-radius:12px;
       border:1px solid var(--kaart-rand);
-      padding:22px 20px 20px;
+      padding:22px 22px 20px;
       box-shadow:0 16px 40px rgba(0,0,0,0.06);
-      text-align:left;
+      max-width:540px;        /* smaller dan container → meer ruimte links/rechts */
     }
 
     .bestel-card-title {
@@ -114,34 +115,33 @@
 
     .form-row {
       display:flex; flex-direction:column;
-      gap:6px; margin-bottom:10px;
+      gap:4px; margin-bottom:9px;
     }
-    .form-label { font-size:0.82rem; color:#444; }
-.form-input, .form-select {
-  width:100%;
-  padding:6px 9px;      /* minder hoogte */
-  border-radius:4px;    /* iets strakker */
-  border:1px solid #d6d3ce;
-  font-size:0.9rem;
-}
+    .form-label { font-size:0.8rem; color:#444; }
+
+    /* KLEINERE WITTE INVOERBALKEN */
+    .form-input, .form-select {
+      width:100%;
+      padding:6px 9px;       /* lager/kleiner */
+      border-radius:4px;
+      border:1px solid #d6d3ce;
+      font-size:0.9rem;
+    }
     .form-input::placeholder { color:#a5a29b; }
 
-    .form-help {
-      font-size:0.78rem;
-      color:#777;
-      margin-top:2px;
-    }
-    .form-status {
-      font-size:0.8rem;
-      color:#777;
-      margin-top:8px;
-      min-height:1.2em;
+    .form-help { font-size:0.78rem; color:#777; margin-top:4px; }
+    .form-status { font-size:0.8rem; color:#777; margin-top:8px; min-height:1.2em; text-align:center; }
+
+    button[type="submit"] {
+      margin-top:12px;
+      width:100%;
       text-align:center;
     }
 
     @media(max-width:900px){
       nav{padding:0 24px;}
-      main{padding:84px 16px 32px;}
+      .bestel-container{max-width:100%;}
+      .bestel-card{max-width:100%;}
     }
   </style>
 </head>
@@ -159,7 +159,7 @@
   </nav>
 
   <main>
-    <div class="bestel-wrapper">
+    <div class="bestel-container">
       <div class="badge">Bestellen</div>
       <h1>Bestel jouw <span>fan-versie shirt 2026</span></h1>
       <p class="intro">
@@ -201,7 +201,7 @@
 
           <p class="form-help">Prijs per fan-versie shirt: €24,99 – na het versturen betaal je veilig via Tikkie.</p>
 
-          <button type="submit" class="btn-primary" style="width:100%; text-align:center; margin-top:12px;">
+          <button type="submit" class="btn-primary">
             Verstuur bestelling & betaal
           </button>
 
