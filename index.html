@@ -24,7 +24,7 @@
       color:var(--tekst);
     }
 
-    /* BOVENBALK */
+    /* NAV */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
       display:flex; align-items:center; justify-content:space-between;
@@ -148,6 +148,12 @@
       color:var(--oranje);
     }
 
+    .hero-note {
+      font-size:0.82rem;
+      color:#777;
+      margin-top:6px;
+    }
+
     /* ONZE SHIRTS */
     #shirts {
       max-width:960px;
@@ -178,10 +184,12 @@
     }
     .shirt-card img {
       width:100%;
-      height:auto;
+      height:240px;       /* vaste hoogte zodat beide gelijk zijn */
+      object-fit:contain; /* hele foto zichtbaar, niet afgesneden */
       border-radius:10px;
       margin-bottom:10px;
       display:block;
+      background:#ffffff; /* witte randen indien nodig */
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -262,7 +270,7 @@
   </nav>
 
   <main>
-    <!-- HERO MET AANGEPASTE KNOPPEN -->
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-badge">Oranje fan shirt</div>
 
@@ -274,21 +282,20 @@
         gewoon trots in het oranje rond te lopen.
       </p>
 
-      <!-- Alleen de bestelknop -->
       <div class="hero-actions">
         <a href="bestellen.html" class="btn-primary">Bestel nu je shirt</a>
       </div>
 
-      <!-- Tekst over gripsokken -->
       <p class="hero-text" style="margin-top:16px;">
         Wil je ook in je schoenen meer grip en minder schuiven? Met onze gripsokken heb je extra stabiliteit bij
         iedere sprint, draai en kapbeweging.
       </p>
 
-      <!-- Knop gripsokken onder de tekst -->
       <div class="hero-actions" style="margin-top:4px;">
         <a href="gripsokken.html" class="btn-secondary">Bekijk gripsokken</a>
       </div>
+
+      <p class="hero-note">€24,99 per shirt.</p>
     </section>
 
     <!-- ONZE SHIRTS -->
@@ -319,8 +326,8 @@
       <p class="over-subtitle">VoetbalshirtsNL is een kleine Nederlandse webshop voor fanatieke Oranje-supporters.</p>
       <p class="over-text">
         We selecteren alleen fan-versies die goed zitten, netjes afgewerkt zijn en betaalbaar blijven.
-        Bestellen gaat bewust simpel: je kiest je maat en wij zorgen dat jouw shirt netjes en snel bij je thuis wordt bezorgd.
-        Zo houden we de prijs laag en de service persoonlijk.
+        Bestellen gaat bewust simpel: je kiest je maat, wij nemen persoonlijk contact op en verzenden je shirt
+        zorgvuldig verpakt. Zo houden we de prijs laag en de service persoonlijk.
       </p>
     </section>
   </main>
